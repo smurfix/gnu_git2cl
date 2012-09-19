@@ -33,6 +33,41 @@
 # Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
 # 02110-1301 USA.
 
+=head1 NAME
+
+git2cl        -  tool to convert git logs to GNU ChangeLog
+
+=head1 SYNOPSIS
+
+git2cl > ChangeLog
+
+If you don't want git2cl to invoke git log internally, you can use it
+as a pipe.
+It needs a git log generated with --pretty --numstat and --summary.
+You can use it as follows:
+
+    git log --pretty --numstat --summary | git2cl > ChangeLog
+
+=head1 DESCRIPTION
+
+This is a quick'n'dirty tool to convert git logs to GNU ChangeLog
+format.
+
+The tool invokes `git log` internally unless you pipe a log to it.
+Thus, typically you would use it as follows:
+
+=head1 SEE ALSO
+
+Output format specification:
+    <http://www.gnu.org/prep/standards/html_node/Change-Logs.html>
+
+=head1 AUTHORS
+
+git2cl is developed by Simon Josefsson <simon@josefsson.org>
+                   and Luis Mondesi <lemsx1@gmail.com>
+
+=cut
+
 use strict;
 use POSIX qw(strftime);
 use Text::Wrap qw(wrap);
